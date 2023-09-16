@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.getTariffs = (req, res) => {
   (async () => {
     try {
-      const tariffs = fs.readFileSync('./data/tariffs.json', {
+      const tariffs = fs.readFileSync('tariffs.json', {
         encoding: 'utf8',
       });
 
@@ -37,7 +37,7 @@ module.exports.parseTariffs = (req, res) => {
       //   { encoding: 'utf8', flag: 'w+' }
       // );
 
-      fs.writeFileSync('./data/tariffs.json', test, {
+      fs.writeFileSync('tariffs.json', test, {
         encoding: 'utf8',
         flag: 'w+',
       });
