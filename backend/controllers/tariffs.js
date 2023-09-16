@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.getTariffs = (req, res) => {
   (async () => {
     try {
-      const tariffs = fs.readFileSync('tariffs.json', {
+      const tariffs = fs.readFileSync('tariffs.txt', {
         encoding: 'utf8',
       });
 
@@ -38,7 +38,7 @@ module.exports.parseTariffs = (req, res) => {
 
       const test = 'Test data';
 
-      fs.writeFileSync('tariffs.json', test);
+      fs.writeFileSync('tariffs.txt', test);
 
       res.send('success');
     } catch (error) {
