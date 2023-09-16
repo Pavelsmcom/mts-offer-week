@@ -30,18 +30,11 @@ module.exports.parseTariffs = (req, res) => {
 
       res.send(JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`));
 
-      // fs.writeFileSync(
-      //   './data/tariffs.json',
-      //   JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`),
-      //   { encoding: 'utf8', flag: 'w+' }
-      // );
-
-      // const test = 'Test data';
-
-      // fs.writeFileSync('./data/tariffs.json', test, {
-      //   encoding: 'utf8',
-      //   flag: 'w+',
-      // });
+      fs.writeFileSync(
+        './data/tariffs.json',
+        JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`),
+        { encoding: 'utf8', flag: 'w+' }
+      );
     } catch (error) {
       res.status(400).send(`Parsing error: ${error}`);
     }
