@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.getTariffs = (req, res) => {
   (async () => {
     try {
-      const tariffs = fs.readFileSync('tariffs.json', {
+      const tariffs = fs.readFileSync('/tariffs.json', {
         encoding: 'utf8',
       });
 
@@ -37,15 +37,14 @@ module.exports.parseTariffs = (req, res) => {
       //   { encoding: 'utf8', flag: 'w+' }
       // );
 
-      fs.writeFileSync('tariffs.json', test, {
+      fs.writeFileSync('/tariffs.json', test, {
         encoding: 'utf8',
         flag: 'w+',
       });
 
       res.send('success');
     } catch (error) {
-      // res.status(400).send(`Parsing error: ${error}`);
-      res.send(`Parsing error: ${error}`);
+      res.status(400).send(`Parsing error: ${error}`);
     }
   })();
 };
