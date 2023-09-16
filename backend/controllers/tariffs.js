@@ -38,7 +38,6 @@ module.exports.parseTariffs = (req, res) => {
       // );
 
       fs.writeFileSync('./tariffs.json', test, {
-        encoding: 'utf8',
         flag: 'w+',
       });
 
