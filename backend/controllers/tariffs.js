@@ -41,6 +41,8 @@ module.exports.parseTariffs = (req, res) => {
         encoding: 'utf8',
         flag: 'w+',
       });
+
+      res.send('success');
     } catch (error) {
       // res.status(400).send(`Parsing error: ${error}`);
       res.send(`Parsing error: ${error}`);
