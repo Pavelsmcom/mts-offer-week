@@ -37,12 +37,12 @@ module.exports.parseTariffs = (req, res) => {
       //   { encoding: 'utf8', flag: 'w+' }
       // );
 
-      const test = 'Test data';
+      // const test = 'Test data';
 
-      fs.writeFileSync('./data/tariffs.json', test, {
-        encoding: 'utf8',
-        flag: 'w+',
-      });
+      // fs.writeFileSync('./data/tariffs.json', test, {
+      //   encoding: 'utf8',
+      //   flag: 'w+',
+      // });
     } catch (error) {
       res.status(400).send(`Parsing error: ${error}`);
     }
