@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports.getTariffs = (req, res) => {
   (async () => {
     try {
-      const tariffs = fs.readFileSync('./tariffs.json', {
+      const tariffs = fs.readFileSync('tariffs.json', {
         encoding: 'utf8',
       });
 
@@ -29,7 +29,6 @@ module.exports.parseTariffs = (req, res) => {
       // const endIndex = String(tariffs).indexOf('archiveTariffs', startIndex);
 
       // res.send(JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`));
-      const test = 'Test data';
 
       // fs.writeFileSync(
       //   './data/tariffs.json',
@@ -37,9 +36,9 @@ module.exports.parseTariffs = (req, res) => {
       //   { encoding: 'utf8', flag: 'w+' }
       // );
 
-      fs.writeFileSync('./tariffs.json', test, {
-        flag: 'w+',
-      });
+      const test = 'Test data';
+
+      fs.writeFileSync('tariffs.json', test);
 
       res.send('success');
     } catch (error) {
