@@ -5,15 +5,18 @@ import { useState, useEffect } from 'react';
 
 import TariffPage from '../TariffPage/TariffPage';
 import PopupChooseTariff from '../PopupChooseTariff/PopupChooseTariff';
+import PageNotFound from '../PageNotFound/PageNotFound';
+
 import axios from 'axios';
 
 const App = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [tariffs, setTariffs] = useState(null);
+  const [isLoadingTariffs, setIsLoadingTariffs] = useState(false);
 
   useEffect(() => {
     (async () => {
-      // TODO loader
+      setIsLoadingTariffs(true);
       try {
         const response = await axios.get('http://158.160.64.154:3000/tariffs');
 
@@ -21,7 +24,7 @@ const App = () => {
       } catch (error) {
         console.log(error); // TODO error
       } finally {
-        // TODO loader
+        setIsLoadingTariffs(false);
       }
     })();
   }, []);
@@ -36,7 +39,7 @@ const App = () => {
 
   const handleUpdateTariffs = () => {
     (async () => {
-      // TODO loader
+      setIsLoadingTariffs(true);
       try {
         const response = await axios.get('http://158.160.64.154:3000/parse');
 
@@ -44,13 +47,13 @@ const App = () => {
       } catch (error) {
         console.log(error); // TODO error
       } finally {
-        // TODO loader
+        setIsLoadingTariffs(false);
       }
     })();
   };
 
   return (
-    <main className="app">
+    <div className="app">
       <Routes>
         <Route
           path="/"
@@ -59,16 +62,18 @@ const App = () => {
               openPopup={handleOpenPopup}
               tariffs={tariffs}
               updateTariffs={handleUpdateTariffs}
+              isLoadingTariffs={isLoadingTariffs}
             />
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <PopupChooseTariff
         isOpen={isPopupOpen}
         closePopup={handleClosePopup}
         tariffs={tariffs}
       />
-    </main>
+    </div>
   );
 };
 

@@ -20,6 +20,7 @@ export function sortProductCharacteristics(arr) {
       sortedProductCharacteristics.internet = arr[i].value;
     } else if (arr[i].baseParameter === 'MinutesPackage') {
       sortedProductCharacteristics.minutes = arr[i].value;
+      sortedProductCharacteristics.minutesNum = arr[i].numValue;
     } else if (arr[i].baseParameter === 'MaxSpeed') {
       sortedProductCharacteristics.maxspeed = arr[i].value;
     }

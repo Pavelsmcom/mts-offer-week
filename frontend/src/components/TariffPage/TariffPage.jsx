@@ -7,21 +7,24 @@ import { useState, useRef, useEffect } from 'react';
 import Sorting from '../Sorting/Sorting';
 import Button from '../UI/Button/Button';
 import TariffCard from '../TariffCard/TariffCard';
+import Preloader from '../Preloader/Preloader';
 import { debounce } from '../../utils/utils';
 
 const TariffPage = (props) => {
-  const { tariffs, updateTariffs, openPopup } = props;
+  const { tariffs, updateTariffs, openPopup, isLoadingTariffs } = props;
 
   const [activeCategory, setActiveCategory] = useState(5194439);
   const [tariffsOnPage, setTariffsOnPage] = useState([]);
   const [amountOfTariffs, setAmountOfTariffs] = useState({});
 
+  // Ограничиваем нагрузку на сервер
   const debouncedFunctionRef = useRef(null);
 
   if (!debouncedFunctionRef.current) {
     debouncedFunctionRef.current = debounce(updateTariffs, 500);
   }
 
+  // Получаем количество тарифов в каждой категории для отображения в сортировке
   useEffect(() => {
     if (tariffs?.actualTariffs) {
       let counter = {};
@@ -35,6 +38,7 @@ const TariffPage = (props) => {
     }
   }, [tariffs]);
 
+  // Изначальное отображение тарифов
   useEffect(() => {
     if (tariffs?.actualTariffs) {
       const newTariffs = tariffs.actualTariffs.filter(
@@ -79,7 +83,11 @@ const TariffPage = (props) => {
         activeCategory={activeCategory}
         selectCategory={handleSelectSortCategory}
       />
-      <ul className="tariff-page__tariffs-container">{tariffList}</ul>
+      {isLoadingTariffs ? (
+        <Preloader />
+      ) : (
+        <ul className="tariff-page__tariffs-container">{tariffList}</ul>
+      )}
     </section>
   );
 };
@@ -93,10 +101,12 @@ TariffPage.propTypes = {
     catalogMenuItems: PropTypes.array,
     actualTariffs: PropTypes.array,
   }),
+  isLoadingTariffs: PropTypes.bool,
 };
 
 TariffPage.defaultProps = {
   openPopup: null,
   updateTariffs: null,
   tariffs: {},
+  isLoadingTariffs: false,
 };

@@ -1,0 +1,8 @@
+@import '../Shared/mixins.scss';
+@import '../Shared/variables.scss';
+
+.page-not-found {
+  @include font-sans($textL, $color-grey, 300, 120%, 0.24px);
+  text-align: center;
+  padding-top: 100px;
+}
