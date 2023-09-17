@@ -30,11 +30,11 @@ module.exports.parseTariffs = (req, res) => {
 
       res.send(JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`));
 
-      // fs.writeFileSync(
-      //   'tariffs.txt',
-      //   JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`),
-      //   { encoding: 'utf8', flag: 'w+' }
-      // );
+      fs.writeFileSync(
+        'tariffs.txt',
+        JSON.stringify(`${tariffs.slice(startIndex, endIndex - 2)}}`),
+        { encoding: 'utf8', flag: 'w+' }
+      );
     } catch (error) {
       res.status(400).send(`Parsing error: ${error}`);
     }
