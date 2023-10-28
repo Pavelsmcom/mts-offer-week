@@ -18,9 +18,17 @@ const App = () => {
     (async () => {
       setIsLoadingTariffs(true);
       try {
-        const response = await axios.get('http://158.160.64.154:3000/tariffs');
+        const response = await axios.get(
+          'https://moskva.mts.ru/personal/mobilnaya-svyaz/tarifi/vse-tarifi/mobile-tv-inet'
+        );
 
-        setTariffs(JSON.parse(response.data));
+        const tariffsData = response.data;
+
+        const startIndex =
+          String(tariffsData).indexOf('window.globalSettings.tariffs') + 32;
+        const endIndex = String(tariffsData).indexOf('</script>', startIndex);
+
+        setTariffs(JSON.parse(tariffsData.slice(startIndex, endIndex - 7)));
       } catch (error) {
         console.log(error); // TODO error
       } finally {
@@ -41,9 +49,17 @@ const App = () => {
     (async () => {
       setIsLoadingTariffs(true);
       try {
-        const response = await axios.get('http://158.160.64.154:3000/parse');
+        const response = await axios.get(
+          'https://moskva.mts.ru/personal/mobilnaya-svyaz/tarifi/vse-tarifi/mobile-tv-inet'
+        );
 
-        setTariffs(JSON.parse(response.data));
+        const tariffsData = response.data;
+
+        const startIndex =
+          String(tariffsData).indexOf('window.globalSettings.tariffs') + 32;
+        const endIndex = String(tariffsData).indexOf('</script>', startIndex);
+
+        setTariffs(JSON.parse(tariffsData.slice(startIndex, endIndex - 7)));
       } catch (error) {
         console.log(error); // TODO error
       } finally {
