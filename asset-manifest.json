@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mts-offer-week/static/css/main.a4e153de.css",
+    "main.js": "/mts-offer-week/static/js/main.262dab50.js",
+    "static/media/GeologicaRoman-SemiBold.woff": "/mts-offer-week/static/media/GeologicaRoman-SemiBold.a4eac944bb22fc973c2b.woff",
+    "static/media/GeologicaRoman-Bold.woff": "/mts-offer-week/static/media/GeologicaRoman-Bold.1f47d2357619bb900665.woff",
+    "static/media/GeologicaRoman-Light.woff": "/mts-offer-week/static/media/GeologicaRoman-Light.2bcfd578a7caeec6a546.woff",
+    "static/media/GeologicaRoman-Thin.woff": "/mts-offer-week/static/media/GeologicaRoman-Thin.4368ff1301a19e7095f1.woff",
+    "static/media/GeologicaRoman-SemiBold.woff2": "/mts-offer-week/static/media/GeologicaRoman-SemiBold.59105c2195976805478a.woff2",
+    "static/media/GeologicaRoman-Bold.woff2": "/mts-offer-week/static/media/GeologicaRoman-Bold.f6dd6db4ce60a54e57a5.woff2",
+    "static/media/GeologicaRoman-Light.woff2": "/mts-offer-week/static/media/GeologicaRoman-Light.ea930e11c2ecd7d93d5d.woff2",
+    "static/media/GeologicaRoman-Thin.woff2": "/mts-offer-week/static/media/GeologicaRoman-Thin.02092c9dca73d222bf8c.woff2",
+    "static/media/icon-close-popup.svg": "/mts-offer-week/static/media/icon-close-popup.33894ea3eb2e304600c9.svg",
+    "index.html": "/mts-offer-week/index.html",
+    "main.a4e153de.css.map": "/mts-offer-week/static/css/main.a4e153de.css.map",
+    "main.262dab50.js.map": "/mts-offer-week/static/js/main.262dab50.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4e153de.css",
+    "static/js/main.262dab50.js"
+  ]
+}
