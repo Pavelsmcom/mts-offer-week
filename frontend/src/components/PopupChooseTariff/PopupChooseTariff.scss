@@ -1,0 +1,50 @@
+@import '../Shared/mixins';
+@import '../Shared/variables';
+
+.popup-choose-tariff {
+  &__header {
+    @include font-sans($textL, $color-black, 500, 150%, 0.72px);
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  &__counter {
+    @include font-sans($textM, $color-black, 600, 150%, 0.72px);
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  &__btn {
+    display: block;
+    margin: 0 auto;
+
+    &_screen_two {
+      @include font-sans($textM, $color-white, 400, 150%, 0.42px);
+      display: inline-block;
+      width: 140px;
+      height: 44px;
+      margin: 0;
+    }
+  }
+
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  &__final-tariffs {
+    @include font-sans($textM, $color-black, 500, 150%, 0.72px);
+    margin: 0;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  &__final-tariff {
+    text-align: left;
+    padding-left: 20px;
+    list-style: none;
+  }
+}

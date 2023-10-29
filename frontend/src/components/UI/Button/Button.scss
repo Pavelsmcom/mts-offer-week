@@ -1,0 +1,24 @@
+@import '../../Shared/mixins.scss';
+@import '../../Shared/variables.scss';
+
+.button {
+  @include font-sans($textL, $color-white, 700, 140%, 1px);
+  background-color: $color-red;
+  height: 48px;
+  width: 296px;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-red-hover;
+  }
+  &:active {
+    background-color: $color-red-pressed;
+  }
+  &:disabled {
+    background-color: $color-bg-grey;
+    color: $color-text-primary;
+  }
+}

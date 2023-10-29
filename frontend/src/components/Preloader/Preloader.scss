@@ -1,0 +1,9 @@
+@import '../Shared/mixins';
+@import '../Shared/variables';
+
+.preloader {
+  @include font-sans($textXL, $color-black, 500, 150%, 0.96px);
+  margin: 0;
+  padding: 24px 0;
+  text-align: center;
+}
