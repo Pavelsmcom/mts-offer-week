@@ -72,7 +72,7 @@ const App = () => {
     <div className="app">
       <Routes>
         <Route
-          path="/"
+          path="/mts-offer-week"
           element={
             <TariffPage
               openPopup={handleOpenPopup}
